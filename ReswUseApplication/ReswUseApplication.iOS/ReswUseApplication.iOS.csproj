@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProjectGuid>2476cdfd-f159-4d1a-bfb9-143370d2f9d5</ProjectGuid>
+    <ProjectGuid>{2476CDFD-F159-4D1A-BFB9-143370D2F9D5}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
     <RootNamespace>ReswUseApplication</RootNamespace>
@@ -150,9 +150,10 @@
     </ImageAsset>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Media" Visible="false" />
-    <Folder Include="Media\AppIcons" Visible="false" />
-    <Folder Include="Media\LaunchImages" Visible="false" />
+    <ProjectReference Include="..\..\LibraryWithResw\LibraryWithResw.csproj">
+      <Project>{c7b18438-e820-4744-add9-1176f3ff3336}</Project>
+      <Name>LibraryWithResw</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\ReswUseApplication.Shared\ReswUseApplication.Shared.projitems" Label="Shared" Condition="Exists('..\ReswUseApplication.Shared\ReswUseApplication.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

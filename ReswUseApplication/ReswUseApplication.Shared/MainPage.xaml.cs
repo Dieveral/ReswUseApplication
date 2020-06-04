@@ -27,13 +27,34 @@ namespace ReswUseApplication
 		public static readonly DependencyProperty CustomTextProperty =
 			DependencyProperty.Register(nameof(CustomText), typeof(string), typeof(MainPage), new PropertyMetadata(""));
 
+		public string TextFromLibrary
+		{
+			get { return (string)GetValue(TextFromLibraryProperty); }
+			set { SetValue(TextFromLibraryProperty, value); }
+		}
+		public static readonly DependencyProperty TextFromLibraryProperty =
+			DependencyProperty.Register(nameof(TextFromLibrary), typeof(string), typeof(MainPage), new PropertyMetadata(""));
+
 		public MainPage()
 		{
 			this.InitializeComponent();
 
+#if (__ANDROID__ || __IOS__)
+            Uno.UI.Toolkit.VisibleBoundsPadding.SetPaddingMask(PageGrid, Uno.UI.Toolkit.VisibleBoundsPadding.PaddingMask.All);
+#endif
+
+			// Get string resources from different (.resw) files
+			
 			var resourceLoader = ResourceLoader.GetForCurrentView();
 			DefaultText = resourceLoader.GetString("SomeText");
 			CustomText = resourceLoader.GetString("/Custom/SomeText");
+
+#if __ANDROID__ || __IOS__
+			TextFromLibrary = resourceLoader.GetString("/Library/SomeText");
+#elif NETFX_CORE
+			resourceLoader = ResourceLoader.GetForCurrentView("LibraryWithResw");
+			TextFromLibrary = resourceLoader.GetString("Library/SomeText");
+#endif
 		}
 	}
 }

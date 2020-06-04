@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>77238d0a-139f-45ae-a886-9769e32d2011</ProjectGuid>
+    <ProjectGuid>{77238D0A-139F-45AE-A886-9769E32D2011}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -88,6 +88,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Styles.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\LibraryWithResw\LibraryWithResw.csproj">
+      <Project>{c7b18438-e820-4744-add9-1176f3ff3336}</Project>
+      <Name>LibraryWithResw</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\ReswUseApplication.Shared\ReswUseApplication.Shared.projitems" Label="Shared" Condition="Exists('..\ReswUseApplication.Shared\ReswUseApplication.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
